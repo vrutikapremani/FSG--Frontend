@@ -1,0 +1,133 @@
+<header class="header">
+    <nav>
+      <div class="nav-brand">
+        <p>FSG</p>
+      </div>
+  
+      <div class="button-section">
+        <button type="button" class="btn btn-info" (click)="onLogOut()">
+          Logout
+        </button>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- <div class="all">
+    <h4>Welcome, {{ user }}</h4>
+  </div> -->
+
+  <!-- <div class="fluid-container p-1 m-2"> -->
+    <!-- <table class="table" width="100%">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th class="">Acc Number</th>
+            <th class="">Sales Order ID</th>
+            <th class="">Work Order ID</th>
+            <th class="">Web Order Number</th>
+            <th class="">Production Complete Date</th>
+            <th class="">CS Owner</th>
+            <th class="">Order Status</th>
+            <th class="">Order Created</th>
+            <th class="">Order Created By</th>
+            <th class="">Order Updated By</th>
+            <th class="">Order Updated</th>
+            <th class="">Ship date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let order of orders; let i = index">
+          <tr>
+            <td>{{ order.Order_Id }}</td>
+            <td>{{ order.Account_Number }}</td>
+            <td>{{ order.Sales_Order_Id }}</td>
+            <td>{{ order.Work_Order_Id }}</td>
+            <td>{{ order.Web_Order_Number }}</td>
+            <td>{{ order.Ship_Date }}</td>
+            <td>{{ order.ProdComplete_Date }}</td>
+            <td>{{ order.CS_Owner }}</td>
+            <td>{{ order.Order_Status }}</td>
+            <td>{{ order.Order_CreatedOn }}</td>
+            <td>{{ order.Order_CreatedBy }}</td>
+            <td>{{ order.Order_UpdatedBy }}</td>
+            <td>{{ order.Order_UpdatedOn }}</td>
+            <td><button type="button" class="btn btn-link btn-sm" (click)="isCollapsed[i] = !isCollapsed[i]"
+                [attr.aria-expanded]="!isCollapsed[i]" aria-controls="collapseExample">
+                <i class="fa fa-caret-down text-secondary" aria-hidden="true" *ngIf="isCollapsed[i]"></i>
+                <i class="fa fa-caret-up text-secondary" aria-hidden="true" *ngIf="!isCollapsed[i]"></i>
+              </button></td>
+          </tr>
+          <tr *ngIf="!isCollapsed[i]">
+            <td colspan="6" class="border-top-0">
+              <div id="collapseExample" [ngbCollapse]="isCollapsed[i]">
+                <div class="card" style="width: 100%;">
+                  <div *ngFor="let detail of orderDetails; let i = index" >
+                    Order Details ID: {{ detail.Order_Details_id}}
+                    Order ID: {{ detail.Order_Id}}
+                    Style: {{ detail.Style}}
+                    Team Name: {{ detail.Team_Name}}
+                    Retrival Code: {{ detail.Retrival_Code}}
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table> -->
+  <!-- </div> -->
+
+  <!-- <div class="container p-3 m-2">
+    <table mat-table>
+      <ng-container matColumnDef="orderId">
+        <th mat-header-cell *matHeaderCellDef> Order ID </th>
+        <td mat-cell *matCellDef="let element">hello </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="dateOfBirth">
+        <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
+        <td mat-cell *matCellDef="let element">hello </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> hello </td>
+      </ng-container>
+     
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div> -->
+
+  <mat-table  #table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Weight </th>
+      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </mat-table>
+  
